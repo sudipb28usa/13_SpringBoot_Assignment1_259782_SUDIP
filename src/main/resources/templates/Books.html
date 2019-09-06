@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<base href="./">
+<title th:if="${message}" th:text="${message}"></title>
+</head>
+<body>
+	<h1 th:if="${message}" th:text="${message}"></h1>
+	<br>
+	<br>
+	<div th:if="${message}" th:text="${message}" />
+	<br>
+	<br>
+
+
+	<form action="#" th:action="@{/searchBook}" th:object="${book}"
+		method="post">
+		<table>
+			<tr>
+				<td>Title:</td>
+				<td><input type="text" th:field="*{title}" /></td>
+				<td><input type="submit" value="Search" /></td>
+			</tr>
+
+		</table>
+	</form>
+
+	<table border="1" cellpadding="10">
+	<thead>
+		<tr>
+			<th>Title
+			</td>
+			<th>Price
+			</td>
+			<th>Volume
+			</td>
+			<th>Publish Date
+			</td>
+			<th>Action
+			</td>
+
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="bookItem : ${bookList}">
+			<form action="#" th:action="@{/deleteBook}" th:object="${book}"
+				method="post">
+				<td th:text="${bookItem.title}">Title</td>
+				<td th:text="${bookItem.price}">Price</td>
+				<td th:text="${bookItem.volume}">Volume</td>
+				<td th:text="${#temporals.formatISO(publishdatelocal)}">Publish Date</td>
+				<td><input type="submit" value="Delete" /> 
+					<input type="hidden" th:attr="name='bookId'" th:value="${bookItem.bookId}" />
+
+				</td>
+			</form>
+		</tr>
+
+	</tbody>
+</table>
+</body>
+
+
+
+
+
+</html>

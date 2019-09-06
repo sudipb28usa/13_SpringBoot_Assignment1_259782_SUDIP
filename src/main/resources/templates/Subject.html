@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+ 
+<head>
+<base href="./">
+<title>${Title}</title>
+</head>
+<body>
+	<h1>${Header}</h1>
+	<br>
+	<br> ${message}
+	<br>
+	<br>
+
+ 
+		<form action="#" th:action="@{/searchSubject}" th:object="${subject}" method="post">
+		<table>
+			<tr>
+				<td>
+					<table>
+						<tr>
+							<td>Subject Title:</td>
+							<td><input type="text" th:field="*{subtitle}" /></td>
+							<td><input type="submit" value="Search" /></td>
+
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+		</table>
+	</form>
+
+	 
+	
+	 <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+            <th>Subject ID</th>
+                <th>Sub Title</th>
+                <th>Duration(Hr)</th>
+                <th>Action</th>
+ 
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="subjectItem : ${subjectList}">
+            <form action="#" th:action="@{/deleteSubject}" th:object="${subject}" method="post">
+            <td th:text="${subjectItem.subjectId}">Subject ID</td>
+            	<td th:text="${subjectItem.subtitle}">Sub Title</td>
+                <td th:text="${subjectItem.durationInHours}">Duration(Hr)</td>
+                <td>
+ 					<input type="submit" value="Delete" />                	 
+                	
+                	<input type="hidden" th:attr="name='subjectId'"  th:value="${subjectItem.subjectId}" />
+                </td>
+               </form>
+            </tr>
+
+        </tbody>
+    </table>
+
+</body>
+</html>

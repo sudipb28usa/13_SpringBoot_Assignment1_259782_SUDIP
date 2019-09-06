@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<base href="./">
+<title>Add Book</title>
+</head>
+<body>
+	<h1>Add Book</h1>
+
+
+
+	<form action="#" th:action="@{/addBook}" th:object="${book}"
+		method="post">
+		<table>
+			<tr>
+				<td>Subject</td>
+				<td><select th:field="*{subjectId}">
+						<option th:each="entry : ${subjectDD.entrySet()}"
+							th:value="${entry.key}" th:utext="${entry.value}"></option></td>
+			</tr>
+			<tr>
+				<td>Title</td>
+				<td><input type="text" th:field="*{title}" /></td>
+			</tr>
+			<tr>
+				<td>Price</td>
+				<td><input type="text" th:field="*{price}" /></td>
+			</tr>
+			<tr>
+				<td>Volume</td>
+				<td><input type="text" th:field="*{volume}" /></td>
+			</tr>
+			<tr>
+				<td>Publish Date (MM/dd/YYYY)</td>
+				<td><input type="date" th:field="*{publishdate}" /></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Submit" /></td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+</html>
