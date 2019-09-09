@@ -82,19 +82,22 @@ public class Book   {
 	public Book() {
     }
     
-    public Book(Long bookId, String title, double price, Integer volume, LocalDate publishDate  ) {
+    public Book(Long bookId, String title, double price, Integer volume, LocalDate publishDate , Subject subject ) {
         this.bookid = bookId;
         this.title = title;
         this.price = price;
         this.volume = volume;
         this.publishdatelocal = publishDate;
+        this.subject=subject;
+      
     }
     
-    public Book(String title, double price, Integer volume, LocalDate publishDate  ) {
+    public Book(String title, double price, Integer volume, LocalDate publishDate, Subject subject  ) {
         this.title = title;
         this.price = price;
         this.volume = volume;
         this.publishdatelocal = publishDate;
+        this.subject=subject;
     }
  
 

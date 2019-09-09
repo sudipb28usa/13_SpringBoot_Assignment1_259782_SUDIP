@@ -33,7 +33,7 @@ public class BookService {
 	        repo.delete(book);
 	    }
 	    
-	    public List<Book> findBySubtitle(String title){
+	    public List<Book> findByTitle(String title){
 	    	return repo.findByTitle(title);
 	    }
 	    
