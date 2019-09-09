@@ -39,16 +39,16 @@
 			<artifactId>hibernate-types-52</artifactId>
 			<version>2.6.1</version>
 		</dependency>
-		
-		
+
+
 		<!-- Test Dependency -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 		</dependency>
- 		<dependency>
+		<dependency>
 			<groupId>junit</groupId>
-			<artifactId>junit</artifactId> 
+			<artifactId>junit</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
@@ -58,7 +58,7 @@
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-inline</artifactId>
 		</dependency>
-		
+
 
 
 
@@ -68,29 +68,29 @@
 			<artifactId>sqljdbc42</artifactId>
 			<version>6.0.8112</version>
 		</dependency>
+
+		<dependency>
+			<groupId>hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>1.8.0.10</version>
+		</dependency>
 	</dependencies>
-<!-- 
+
+ 
+	<!-- <build> <plugins> <plugin> <groupId>org.springframework.boot</groupId> 
+		<artifactId>spring-boot-maven-plugin</artifactId> </plugin> </plugins> </build> -->
+
 	<build>
+		<finalName>13_SpringBoot_Assignment1_259782_SUDIP</finalName>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
 			</plugin>
 		</plugins>
-	</build>
-	 -->
-	
-		<build>
-	  <finalName>13_SpringBoot_Assignment1_259782_SUDIP</finalName>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
 	</build>
 </project>
